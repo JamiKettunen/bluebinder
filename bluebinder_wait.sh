@@ -6,7 +6,7 @@ do
     if [ $? -eq 0 ] ; then
         bt_status=$(/usr/bin/getprop |grep "init.svc.*bluetooth" |grep -v audio |grep -o "\[running\]")
     else
-        bt_status=$(/usr/bin/getprop |grep "init.svc.*bluetooth" |grep -o "\[running\]")
+        bt_status=$(/usr/bin/getprop |grep "init.svc.*bluetooth" |grep -o "\[running\]" -m1)
     fi
     if [ "$bt_status" = "[running]" ] ; then
         echo "Bluetooth service running"
